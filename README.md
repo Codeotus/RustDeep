@@ -3,11 +3,10 @@
 It is a Free & Open-source repo and is for the people who find it hard to understand complex Computer-Science & Complex codes of Rust Language. It helps you to deal with complex codes while being a very beginner so that there is no need for you to spend money on multi-dollar courses. 
 
 # Important Notes : 
-***Created on:*** Mon , December 15 , 2025.
-***Total Contributors:*** 1.
-
-***Language:*** English(Simplest).
-***Teaching Style:*** Comments.
+***Created on:*** Mon , December 15 , 2025.<br>
+***Total Contributors:*** 1.<br>
+***Language:*** English(Simplest).<br>
+***Teaching Style:*** Comments.<br>
 
 # How to contribute : 
 
@@ -26,11 +25,11 @@ It is a Free & Open-source repo and is for the people who find it hard to unders
 6. Respect Apaache-2.0 License.
 
 # Resources you need :
-1. The Rust Programming Langauge pdf [Latest]
+1. [The Rust Programming Langauge pdf](https://doc.rust-lang.org/book/)
 2. Any Ai for confusion removal or problem solving.
 3. Any faster editor under 100 mbs : Nvim 
 4. Some extra books or more quriosity.
 
-> [NOTE!]:
+> [!NOTE]
 > If you are using Neo-vim or Nvim you may need a IDE like professional experience so make sure to visit https://github.com/Codeotus/Codeotus
 > It is completely free and Open-Source IDE for Nvim Devs.
