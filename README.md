@@ -27,9 +27,10 @@ It is a Free & Open-source repo and is for the people who find it hard to unders
 # Resources you need :
 1. [The Rust Programming Langauge pdf](https://doc.rust-lang.org/book/)
 2. Any Ai for confusion removal or problem solving.
-3. Any faster editor under 100 mbs : Nvim 
-4. Some extra books or more quriosity.
+3. Any faster editor under 100 mbs : [Neovim (Nvim)](https://neovim.io/doc2/install/)
+4. Codeotus IDE layer for Nvim : [Codeotus/Codeotus](https://github.com/Codeotus/Codeotus)
+4. Some extra books & more quriosity. [Foss Books: ](docs/Foss_Rust.md)
 
 > [!NOTE]
 > If you are using Neo-vim or Nvim you may need a IDE like professional experience so make sure to visit https://github.com/Codeotus/Codeotus
-> It is completely free and Open-Source IDE for Nvim Devs.
+> It is completely free and Open-Source IDE for Nvim Devs & you are free to use any of the IDE layers...
