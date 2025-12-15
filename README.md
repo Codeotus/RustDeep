@@ -3,12 +3,11 @@
 It is a Free & Open-source repo and is for the people who find it hard to understand complex Computer-Science & Complex codes of Rust Language. It helps you to deal with complex codes while being a very beginner so that there is no need for you to spend money on multi-dollar courses. 
 
 # Important Notes : 
-***Created on: **** Mon , December 15 , 2025
-***Contributors at the time of creation: *** Codeotus
-***Total Contributors [present]: *** 1
+***Created on:*** Mon , December 15 , 2025.
+***Total Contributors:*** 1.
 
-***Language :*** English(Simplest)
-***Teaching Style : **** Comments
+***Language:*** English(Simplest).
+***Teaching Style:*** Comments.
 
 # How to contribute : 
 
@@ -18,7 +17,7 @@ It is a Free & Open-source repo and is for the people who find it hard to unders
 2. By creating a FOSS pdf in Simple & easy to understand Language. {This can be complex}
 3. Rasing issues related to pdf , Readme or code. {Easiest but only submit real and important issues rather than "You missed to add a comma at the this line in README.md"} 
 
-***Rules of cobtributing: ***
+***Rules of cobtributing:***
 1. Must be a Free and and Open-Source contribution.
 2. Don't do cheating , fraud or scams.
 3. You can't give a harmful link or program without explicitly stating it as harmful.
@@ -32,6 +31,6 @@ It is a Free & Open-source repo and is for the people who find it hard to unders
 3. Any faster editor under 100 mbs : Nvim 
 4. Some extra books or more quriosity.
 
-> [!NOTE]:
+> [NOTE!]:
 > If you are using Neo-vim or Nvim you may need a IDE like professional experience so make sure to visit https://github.com/Codeotus/Codeotus
 > It is completely free and Open-Source IDE for Nvim Devs.
