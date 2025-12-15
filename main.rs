@@ -29,4 +29,6 @@ fn main() {
     let s3 = String::from("Hello");
     let bytes = s3.bytes();
     println!("{:?}", bytes);
+
+    println!("{}", s2);
 }
