@@ -1,0 +1,98 @@
+# ======================
+# Rust
+# ======================
+
+# Cargo build artifacts
+/target/
+
+# Cargo lockfile (ignore for learning/libs; keep for binaries if needed)
+Cargo.lock
+
+# Rust formatting backups
+*.rs.bk
+
+# Rust analyzer cache
+/.rust-analyzer/
+
+# Generated docs
+/doc/
+
+
+# ======================
+# Neovim
+# ======================
+
+# Swap files
+*.sw
+*.swo
+*.swn
+*.swp
+
+# Backup files
+*~
+*.bak
+
+# Undo files (if enabled)
+.undo/
+*.un~
+
+# Session files
+Session.vim
+Sessionx.vim
+
+# Lazy.nvim / plugin caches (common)
+.lazy/
+.plugin/
+
+
+# ======================
+# Termux / Android
+# ======================
+
+# Termux internal files
+.termux/
+
+# Android temp files
+*.tmp
+*.temp
+
+# Android / Linux trash
+.Trash-*
+trash/
+
+# SELinux / misc
+*.log
+
+
+# ======================
+# Editors / IDEs
+# ======================
+
+# VS Code (even if you don't use it)
+.vscode/
+
+# JetBrains
+.idea/
+
+
+# ======================
+# OS junk
+# ======================
+
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+
+# ======================
+# Misc safety
+# ======================
+
+# Environment files
+.env
+.env.*
+
+# Local test output
+/output/
+/tmp/
