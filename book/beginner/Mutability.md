@@ -25,7 +25,7 @@ Here is how we declare a `String`:
 fn main() {
     let s = String::from("Hello");
 }
-
+```
 
 ---
 
@@ -47,12 +47,14 @@ Indexed access (starting from 0)
 
 Example:
 
+```Rust
 // Declaration
 let t = (42, 'a', 3.14);
 
 // Accessing elements
 let x = t.0; // x = 42
 let y = t.1; // y = 'a'
+```
 
 
 ---
@@ -70,9 +72,11 @@ Rust exposes bytes explicitly to give precise control over memory
 
 Example:
 
+```Rust
 let s1 = String::from("Hello");
 let bytes = s1.as_bytes();
 println!("{:?}", bytes);
+```
 
 
 ---
@@ -83,17 +87,21 @@ Rust prefers explicitness. This means the programmer must clearly state what is 
 
 Implicit (Python example)
 
+``` Python
 x = 10
 x = "hello"
 x = [1, 2, 3]
+```
 
 The same variable changes its type freely.
 
 Explicit (Rust example)
 
+```Rust
 let x = 10;
 let x = "hello";
 let x = vec![1, 2, 3];
+```
 
 Here, each x is a new variable. The previous variables are not modified; they become unreachable.
 
@@ -106,6 +114,7 @@ Shadowing in Rust refers to declaring a new variable with the same name as a pre
 
 Code s.1
 
+```Rust
 fn main() {
     let x = 10;
     println!("{}", x);
@@ -116,6 +125,7 @@ fn main() {
 
     println!("{:?}", x);
 }
+```
 
 
 ---
@@ -124,6 +134,7 @@ Shadowing and Scopes
 
 Shadowing works closely with scopes.
 
+```Rust
 fn main() {
     let x = 10;
 
@@ -134,6 +145,7 @@ fn main() {
 
     println!("Value of x in main scope: {}", x);
 }
+```
 
 Each x exists only within its own scope.
 
@@ -145,8 +157,11 @@ They share a name, but they are not the same object.
 
 Is this the same as Python variable reuse?
 
+
+```Python
 x = 10;
 x = "Hello"
+```
 
 
 No.
@@ -188,6 +203,7 @@ Ownership rules:
 
 Ownership Example
 
+```Rust
 fn main() {
     let x = String::from("Hello");
     let y = x;
@@ -195,6 +211,7 @@ fn main() {
     println!("{}", y);
     println!("{}", x); // error
 }
+```
 
 Compiler error:
 
@@ -212,21 +229,24 @@ x is no longer valid
 
 Ownership and Scope
 
+```Rust
 fn main() {
     let x = String::from("Hello");
 } // x goes out of scope and is dropped here
-
+```
 
 ---
 
 Moving Ownership
 
+```Rust
 fn main() {
     let x = String::from("Hello");
     let y = x;
 
     println!("{}", x); // error: value moved
 }
+```
 
 After the move:
 
@@ -240,12 +260,14 @@ x is invalid and cannot be used
 
 Why does this work with integers?
 
+```Rust
 fn main() {
     let x = 10;
     let y = x;
 
     println!("X = {}, Y = {}", x, y);
 }
+```
 
 This works because integers are stored on the stack and implement the Copy trait.
 Rust automatically copies stack data.
@@ -327,8 +349,10 @@ String Slices :
 
 Example of string slices :
 
+```Rust
 let s1 = String::from("Hello");
 let slice = &s1[0..5];
+```
 
 Here s1 owns the data.
 Slice borrows it.
