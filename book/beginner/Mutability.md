@@ -1,10 +1,9 @@
-Below is your entire write-up fixed and cleaned, with no emojis, no AI-style phrasing, and without changing your intent or analogies.
-I corrected grammar, Rust terminology, formatting, and technical inaccuracies while keeping your voice.
+>[!Note]
+> Since , I am learning while writting this I used ai to make this correct and look smooth.
 
 
----
-
-Before understanding mutability, understand the following concepts first:
+> [!Important]
+> Before understanding mutability, understand the following concepts first:
 
 1. Strings  
 2. Tuples  
