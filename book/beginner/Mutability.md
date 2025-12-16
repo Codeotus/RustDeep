@@ -29,20 +29,17 @@ fn main() {
 
 ---
 
-What are Tuples?
+# What are Tuples?
 
 A tuple in Rust is a collection of values grouped together inside parentheses.
 Each element in a tuple can have a different type, and elements are accessed by index.
 
 Tuple properties:
 
-Each element can be of a different data type
-
-Immutable by default
-
-No heap allocation unless one of its elements requires it
-
-Indexed access (starting from 0)
+- Each element can be of a different data type 
+- Immutable by default
+- No heap allocation unless one of its elements requires it
+- Indexed access like arrays (starting from 0)
 
 
 Example:
@@ -55,7 +52,6 @@ let t = (42, 'a', 3.14);
 let x = t.0; // x = 42
 let y = t.1; // y = 'a'
 ```
-
 
 ---
 
@@ -81,7 +77,7 @@ println!("{:?}", bytes);
 
 ---
 
-Explicit vs Implicit Behavior
+# Explicit vs Implicit Behavior
 
 Rust prefers explicitness. This means the programmer must clearly state what is happening, instead of the compiler guessing.
 
@@ -108,7 +104,7 @@ Here, each x is a new variable. The previous variables are not modified; they be
 
 ---
 
-What is Shadowing?
+# What is Shadowing?
 
 Shadowing in Rust refers to declaring a new variable with the same name as a previous one, which makes the previous variable unreachable in that scope.
 
@@ -130,7 +126,7 @@ fn main() {
 
 ---
 
-Shadowing and Scopes
+# Shadowing and Scopes
 
 Shadowing works closely with scopes.
 
@@ -155,7 +151,7 @@ They share a name, but they are not the same object.
 
 ---
 
-Is this the same as Python variable reuse?
+# Is this the same as Python variable reuse?
 
 
 ```Python
@@ -166,23 +162,22 @@ x = "Hello"
 
 No.
 
-In Rust:
+Beacuse in Rust:
 
-Variables do not change type
+- Variables do not change type.
 
-Each shadowed variable is a new binding
+- Each shadowed variable is a new binding.
 
-Previous bindings become unreachable
+- Previous bindings become unreachable.
 
-The compiler enforces ownership and safety rules
+- The compiler enforces ownership and safety rules.
 
-
-Unused shadowed variables will still produce warnings.
+- Unused shadowed variables will still produce warnings.
 
 
 ---
 
-What is Ownership?
+# What is Ownership?
 
 Ownership is a core concept in Rust that prevents memory errors.
 
@@ -215,7 +210,7 @@ fn main() {
 
 Compiler error:
 
-borrow of moved value: `x`
+- borrow of moved value: `x`
 
 Explanation:
 
@@ -227,7 +222,7 @@ x is no longer valid
 
 ---
 
-Ownership and Scope
+# Ownership and Scope
 
 ```Rust
 fn main() {
@@ -237,7 +232,7 @@ fn main() {
 
 ---
 
-Moving Ownership
+# Moving Ownership
 
 ```Rust
 fn main() {
@@ -258,7 +253,7 @@ x is invalid and cannot be used
 
 ---
 
-Why does this work with integers?
+# Why does this work with integers?
 
 ```Rust
 fn main() {
@@ -275,55 +270,55 @@ Rust automatically copies stack data.
 
 ---
 
-Stack vs Heap Copying
+# Stack vs Heap Copying
 
-Stack data:
+## Stack data:
 
-Fixed size
+- Fixed size
 
-Known at compile time
+- Known at compile time
 
-Cheap to copy
+- Cheap to copy
 
-Automatically copied (Copy trait)
-
-
-Heap data:
-
-Dynamically sized
-
-Size known only at runtime
-
-Requires allocation and deep copying
-
-Expensive to duplicate
+- Automatically copied (Copy trait)
 
 
-Stack data is like Pringle chips in a tube:
+## Heap data:
 
-Each chip has a fixed size
+- Dynamically sized
 
-Easy to copy
+- Size known only at runtime
 
+- Requires allocation and deep copying
 
-Heap data is like a large bag:
-
-Starts small
-
-Can grow very large
-
-Expensive to duplicate
-
-Hard to manage safely
+- Expensive to duplicate
 
 
-Because of this, Rust:
+***Stack data is like Pringle chips in a tube:***
 
-Automatically copies stack data
+- Each chip has a fixed size
 
-Moves heap data by default
+- Easy to copy
 
-Requires explicit .clone() for heap duplication
+
+***Heap data is like a large bag:***
+
+- Starts small
+
+- Can grow very large
+
+- Expensive to duplicate (for e.g it is not possible to lift a bag that has grown very heavy)
+
+- Hard to manage safely
+
+
+And because of these all , Rust:
+
+- Automatically copies only the stack data that have copy trait.
+
+- Moves heap data by default
+
+- Requires explicit .clone() for heap duplication
 
 
 
@@ -354,13 +349,16 @@ let s1 = String::from("Hello");
 let slice = &s1[0..5];
 ```
 
-Here s1 owns the data.
-Slice borrows it.
-No allocation or copying just refrencing.
+Here :
+- s1 owns the data.
+- Slice borrows it.
+- No allocation or copying just refrencing.
+- &s1[0..5] means refrence to s1 byte range of the string slices.
+- [0..5] here means from bytes 0 to byte 5 range 
 
+If you do add é & an apple in Hello you will get error because the bytes addition is out of the range of é(2 bytes) + 🍎(4 bytes) = 6 bytes > 0..5 range.
 
-
-
-
-
-
+```Rust
+let s1 = String::from("é🍎Hello");
+let slice = &s1[0..5];
+```
