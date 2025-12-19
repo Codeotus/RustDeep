@@ -1,48 +1,82 @@
-mod better_first_word;
-mod bytes;
-mod channel_func_for_refrence;
+use crate::chapter5::r#struct::Userdata;
+
+mod borrow_checker;
+mod bytes_and_slices;
+mod chapter5;
 mod first_word;
-mod fn_without_return;
-mod multi_borrowing;
+mod first_word_len;
+mod nil_return;
+mod returning;
 
+// This main will explain you shadowing.
 fn main() {
-    // Using function as a channel for refrencing.
+    // This will teach you how to use functions as a channel for refrencing.
     let mut s1 = String::from("Rust");
-    println!("{}", channel_func_for_refrence::safe_returning(&mut s1));
+    println!("{}", returning::channel_returning(&mut s1));
 
-    // Prints first word.
+    // This will print the first word.
     let s1 = String::from("Rust is Good");
-    println!("{}", better_first_word::better_fst_(&s1));
+    println!("{}", first_word::better_fst_(&s1));
 
-    // prints first word length
+    // This will print the length of 1st word.
     let s1 = String::from("Rust");
     println!(
         "The length of first word is : {}",
-        first_word::print_first_word_len(&s1)
+        first_word_len::print_first_word_len(&s1)
     );
 
-    // Multiple borrowing
-    multi_borrowing::multi_borrowing();
+    // This will expalin you borrow checker & multiple borrowing.
+    borrow_checker::multi_borrowing();
 
-    // Function without return.
-    println!("{}", fn_without_return::refee());
+    // This function do not returns anything.
+    println!("{}", nil_return::refee());
 
-    // display bytes
-    println!(" The bytes of Hello are : {:?}", bytes::bytes_printer());
+    // This prints string bytes
+    bytes_and_slices::bytes_printer();
 
-    let s = String::from("é🍎String Hello");
-    let space_index = s.find(' ').unwrap();
-    let first_word_ = &s[..space_index];
-    println!("{}", first_word_);
+    // This is assigning a structure to user1
+    let mut user1 = Userdata {
+        username: String::from("Vishnu_Pulkit"),
+        email: String::from("Vishnu_Pulkit@gmail.com"),
+        sign_in_count: 1,
+        active: true,
+    };
 
-    let slice = &s[0..];
-    println!("{}", slice);
+    println!("{:#?}", user1);
+    println!("{:#?}", user1.username);
+    println!("{:#?}", user1.email);
+    println!("{:#?}", user1.sign_in_count);
+    println!("{:#?}", user1.active);
 
-    let x = 10;
-    let y = x;
-    println!("{}", y);
-    println!("{}", x);
-    let _x = 99; // unused variable warning
-    let x = vec![1, 2, 3];
-    println!("{:?}", x); // rust forces to use {:?} to display vec! 
+    user1.email = String::from("me@gmail.com");
+
+    let user2 = Userdata {
+        email: String::from("Hello"),
+        username: String::from("Hello"),
+        ..user1
+    };
+
+    // We can even define structures as :
+    struct Color(i32, i32, i32);
+    struct Origin(i32, i32, i32);
+
+    let black = Color(0, 0, 0);
+    println!(" The first index of black : {}", black.0)
+
+    // Despite Color and Origin are equal but we can not compare them as they are two different
+    // things instead of being the same.
+    // Think of it like two humans with different faces but same height & weight.
+
+    //     if Color == Origin {
+    //         println!("True");
+    //     }
+}
+
+fn _build_user(email: String, username: String) -> Userdata {
+    Userdata {
+        email,
+        username,
+        active: true,
+        sign_in_count: 1,
+    }
 }

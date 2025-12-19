@@ -1,116 +1,35 @@
-/*
-Returns the length of the first word in a string.
+pub fn better_fst_(s: &str) -> &str {
+    let bytes = s.as_bytes();
 
-INPUT:
-    s : &str
-    - A borrowed string slice (does NOT take ownership)
-    - Example:
-        let s1 = String::from("Rust language");
-        print_first_word_len(&s1);
-
-OUTPUT:
-    usize
-    - Unsigned integer type used for indexes and lengths
-*/
-
-/*
-IMPORTANT IDEA:
-Strings in Rust cannot be indexed directly like arrays.
-So we convert the string into bytes and iterate over them.
-*/
-
-pub fn print_first_word_len(s: &str) -> usize {
-    /*
-    s.bytes():
-        - Gives ONE BYTE at a time from the string
-        - Each byte is of type u8
-
-    Example:
-        let x = "Rust".bytes();
-        println!("{:?}", x);
-
-    Output:
-        Bytes(Copied { it: Iter([82, 117, 115, 116]) })
-
-    Meaning:
-        82  -> b'R'
-        117 -> b'u'
-        115 -> b's'
-        116 -> b't'
-
-    So the string "Rust" becomes:
-        [b'R', b'u', b's', b't']
-
-    BUT WAIT!
-    Every array / list has an index that tells the position
-    of each value.
-
-    Example (like Python):
-        index : value
-        0     : b'R'
-        1     : b'u'
-        2     : b's'
-        3     : b't'
-
-    How do we get this index in Rust?
-    → Use .enumerate()
-
-    .enumerate():
-        - Adds a counter (index) to each byte
-        - Returns a tuple: (index, value)
-
-    Example:
-        "Rust".bytes().enumerate()
-
-    Becomes:
-        [(0, b'R'), (1, b'u'), (2, b's'), (3, b't')]
-
-    We can think of it as:
-        [(index, value)]
-        or , more smartly -->
-        [(i, item)]
-    */
-    for (i, item) in s.bytes().enumerate() {
-        /*
-        i:
-            - Index (position)
-            - Type: usize
-
-        item:
-            - One byte from the string
-            - Type: u8
-
-        b' ':
-            - Byte representation of a space character
-            - b means "byte literal"
-
-        ' '   -> char
-        b' '  -> byte (u8)
-        */
-
-        /*
-        LOGIC:
-        If the current byte is a space,
-        then the first word has ended.
-        */
+    for (i, &item) in bytes.iter().enumerate() {
         if item == b' ' {
-            /*
-            i is the index of the space.
-            That index is exactly the length
-            of the first word.
-            */
-            return i;
+            return &s[0..i];
         }
     }
-
-    /*
-    If the loop finishes and no space is found:
-        - The string has only ONE word
-
-    Example:
-        "Rust"
-
-    So we return the full length of the string.
-    */
-    s.len() // no semicolon means it is being returned.
+    s
 }
+
+/*
+
+&str => refrence or & to str i.e the string data
+So this function will return a data refrence to that string.
+
+as_bytes converts string slices to bytes slices for e.g :
+
+let s = String::from("Hello");
+=> String_Slices = H e l l o
+
+let bytes = s.bytes();
+=> String_Slices ==> 72, 101, 108, 108, 111
+
+
+Now we have the index and byte tuple and we can write
+=> [(0,b'H'), (1, b'e'), (2, b'l'), (3, b'l'), (4,b'o')]
+Now this tuple will be containg diffrent bytes as per character inserted by user and it will once be having a space (x , b' ') and if it has then we will directly return that refrence to string data i.e &str.
+
+Now to reach that (x, b' ') we write a iteration to get to x wherevalue will be equal to b' ' & we will return that much data to console.
+
+The &s is just the refrence of s data and [0..i] is just the range from byte 0 to byte till the last iteration possible. Hence in simple words &s[0..i] is just the refrence of the string from bhte 0 to all the way to the last iterated byte.
+
+
+*/

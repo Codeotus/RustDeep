@@ -15,7 +15,7 @@ pub fn multi_borrowing() {
         // seperate scope begins
         let r3 = &mut s1; // borrowing a mut refrence !
         *r3 = String::from("I am r3"); // chnaging it with using pointer to the refrence data.
-        println!("{}", r3); // using it 
+        println!("{}", r3); // using it
 
         let r4 = &mut s1;
         // Rust suddenly detected this is a brand new borrowing ...
@@ -23,10 +23,10 @@ pub fn multi_borrowing() {
         // If it recieves not/false then borrow checker will produce error or ...
         // if it is true it will allow new mutable refrence.
 
-        *r4 = String::from("I am r4"); // chnaged the data 
+        *r4 = String::from("I am r4"); // chnaged the data
         println!("{}", r4); // used bt printing it.
-        let r1 = &s1; // immutable refrence 
-        let r2 = &s1; // immutable refrence 
+        let r1 = &s1; // immutable refrence
+        let r2 = &s1; // immutable refrence
 
         println!("{} , {}", r1, r2);
     } // seperate scope ends.
