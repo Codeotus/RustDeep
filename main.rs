@@ -17,7 +17,6 @@ fn main() {
     // This will print the first word.
     let s1 = String::from("Rust is Good");
     println!("{}", first_word::better_fst_(&s1));
-
     // This will print the length of 1st word.
     let s1 = String::from("Rust");
     println!(
@@ -50,19 +49,23 @@ fn main() {
 
     user1.email = String::from("me@gmail.com");
 
-    let user2 = Userdata {
+    let _user2 = Userdata {
         email: String::from("Hello"),
         username: String::from("Hello"),
         ..user1
     };
 
     // We can even define structures as :
+    //
+    //
+    //
+    //
+    //
     struct Color(i32, i32, i32);
     struct Origin(i32, i32, i32);
 
     let black = Color(0, 0, 0);
-    println!(" The first index of black : {}", black.0)
-
+    println!(" The first index of black : {:?}", black.0..);
     // Despite Color and Origin are equal but we can not compare them as they are two different
     // things instead of being the same.
     // Think of it like two humans with different faces but same height & weight.

@@ -5,5 +5,3 @@ pub struct Userdata {
     pub sign_in_count: u64,
     pub active: bool,
 }
-
-let Userdata
